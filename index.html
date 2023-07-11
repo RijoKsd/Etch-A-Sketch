@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="./assests/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Etch-A-Sketch</h1>
+    </header>
+
+    <main>
+      <div class="controls">
+        <!-- color picker and prograsive bar -->
+        <div class="color-picker">
+          <label for="color-picker">Color</label>
+          <input type="color" name="color-picker" id="color-picker" />
+        </div>
+        <div class="progressive-bar">
+          <label for="progressive-bar">Grid Size :  </label>
+          <span id="progressive-bar-value">1</span>
+          <input
+            type="range"
+            name="progressive-bar"
+            id="progressive-bar"
+            min="2"
+            max="64"
+            value="1"
+          />
+            
+        </div>
+
+        <!-- buttons -->
+ 
+        <div class="buttons">
+          <button id="rainbow">Rainbow</button>
+          <button id="lightness">Lightness</button>
+          <button id="darkness">Darkness</button>
+          <button id="erase">Erase</button>
+          <button id="clear">Clear</button>
+          <button id="reset">Reset</button>
+          </div>
+      </div>
+
+      <!--  controls div closes here -->
+      <div class="sketch-board">
+        
+      </div>
+    </main>
+    <script src="./assests/js/script.js"></script>
+  </body>
+</html>

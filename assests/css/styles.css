@@ -1,0 +1,79 @@
+/* font import */
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
+/* Global Styles Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 40px 60px;
+  background-color: #1f1f1f;
+}
+header h1 {
+  font-family: "Bungee Spice", cursive;
+  text-align: center;
+}
+main {
+  margin-top: 50px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+main .controls {
+  background-color: hsla(0, 0%, 100%, 0.891);
+  width: 20%;
+  height: 500px;
+}
+
+main .sketch-board {
+  background-color: hsl(0, 0%, 100%);
+  width: 60%;
+  height: 500px;
+}
+
+main .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 25px;
+}
+main .controls .color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input[type="color"] {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+input[type="range"] {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+/* buttons */
+main .controls .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+button {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #bdbdbd;
+  transition: background-color 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #e0e0e0;
+}
