@@ -1,56 +1,105 @@
 let colorPicker = document.querySelector("#color-picker");
-let progressiveBar = document.querySelector("#progressive-bar");
+let progressIndicator = document.querySelector("#progress-indicator");
 
-let rainbow = document.querySelector("#rainbow");
-let erase = document.querySelector("#erase");
-let clear = document.querySelector("#clear");
-let reset = document.querySelector("#reset");
-let lightness = document.querySelector("#lightness");
-let darkness = document.querySelector("#darkness");
+let rainbowBtn = document.querySelector("#rainbow");
+let eraseBtn = document.querySelector("#erase");
+// let clearBtn = document.querySelector("#clear");
+let resetBtn = document.querySelector("#reset");
+let lightnessBtn = document.querySelector("#lightness");
+let darknessBtn = document.querySelector("#darkness");
 
-let progressiveBarValue = document.querySelector("#progressive-bar-value");
+let progressBarValue = document.querySelector("#progress");
 
-// log  all
+let canvas = document.querySelector("#canvas");
 
-console.log(colorPicker);
-console.log(progressiveBar);
-console.log(rainbow);
-console.log(erase);
-console.log(clear);
-console.log(reset);
-console.log(lightness);
-console.log(darkness);
+// function calling with variables
+let currentColorPickerColor = "#000000";
+let progressBarPercentage = 16;
 
-// add event listener click event log all values
+let randomRainbowColor;
+let isRainbow = false;
 
-colorPicker.addEventListener("click", function () {
-  console.log(colorPicker.value);
-});
+// Functions
 
-progressiveBar.addEventListener("click", function () {
- progressiveBarValue.textContent = `${progressiveBar.value} x ${progressiveBar.value}`;
-});
+function getColor() {
+  isRainbow = false;
 
-rainbow.addEventListener("click", function () {
-  console.log(rainbow.value);
-});
+  currentColorPickerColor = colorPicker.value;
+  return colorPicker.value;
+}
 
-erase.addEventListener("click", function () {
-  console.log(erase.value);
-});
+function getProgressBarValue() {
+  progressBarPercentage = progressIndicator.value;
+  progress.textContent = `${progressIndicator.value} x ${progressIndicator.value}`;
+  return progressBarValue.value;
+}
 
-clear.addEventListener("click", function () {
-  console.log(clear.value);
-});
+function lightness() {}
+function darkness() {}
 
-reset.addEventListener("click", function () {
-  console.log(reset.value);
-});
+function randomColor() {
+  randomRainbowColor = Math.floor(Math.random() * 255 + 1);
+  return randomRainbowColor;
+}
 
-lightness.addEventListener("click", function () {
-  console.log(lightness.value);
-});
+function rainbow() {
+  let red = randomColor();
+  let green = randomColor();
+  let blue = randomColor();
+  let rgb = `rgb(${red}, ${green}, ${blue})`;
+  currentColorPickerColor = rgb;
+  isRainbow = true;
+}
 
-darkness.addEventListener("click", function () {
-  console.log(darkness.value);
-});
+function erase() {
+  isRainbow = false;
+
+  currentColorPickerColor = "#ffffff";
+}
+
+function reset() {
+  location.reload();
+}
+
+function setCanvas() {
+  setUi();
+}
+
+function setUi() {
+  for (let i = 0; i < progressBarPercentage; i++) {
+    // style for canvas
+    canvas.style.display = "grid";
+    canvas.style.gridTemplateColumns = `repeat(${progressBarPercentage}, 1fr)`;
+    canvas.style.gridTemplateRows = `repeat(${progressBarPercentage}, 1fr)`;
+    // creating child div for canvas
+    let grid = document.createElement("div");
+    grid.classList.add("grid-item");
+    canvas.appendChild(grid);
+    grid.addEventListener("mouseover", function () {
+      grid.style.backgroundColor = currentColorPickerColor;
+
+      if (isRainbow) {
+        rainbow();
+      }
+    });
+  }
+}
+
+// Event Listeners
+colorPicker.addEventListener("change", getColor);
+
+progressIndicator.addEventListener("click", getProgressBarValue);
+
+rainbowBtn.addEventListener("click", rainbow);
+
+eraseBtn.addEventListener("click", erase);
+
+// clearBtn.addEventListener("click", clear);
+
+resetBtn.addEventListener("click", reset);
+
+// lightnessBtn.addEventListener("click", lightness);
+
+// darknessBtn.addEventListener("click", darkness);
+
+canvas.addEventListener("mouseover", setCanvas);

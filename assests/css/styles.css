@@ -9,6 +9,7 @@
 body {
   padding: 40px 60px;
   background-color: #1f1f1f;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 header h1 {
   font-family: "Bungee Spice", cursive;
@@ -27,9 +28,9 @@ main .controls {
   height: 500px;
 }
 
-main .sketch-board {
+main #canvas {
   background-color: hsl(0, 0%, 100%);
-  width: 60%;
+  width: 50%;
   height: 500px;
 }
 
@@ -60,6 +61,7 @@ input[type="range"] {
 }
 /* buttons */
 main .controls .buttons {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -76,4 +78,19 @@ button {
 }
 button:hover {
   background-color: #e0e0e0;
+}
+.controls{
+  position: relative;
+}
+footer{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+  padding:5px 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  background-color: #bdbdbd;
+
+  
 }
